@@ -4,20 +4,14 @@ import streamlit as st
 from pinecone import Pinecone, ServerlessSpec
 from langchain_community.llms import Ollama
 import ollama as ol
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
-# Modules 
-#from modCreateIndex import create_index, drop_index
-#from modProcess import clean_text, compute_image_hash, extract_text_from_image, get_embedding
-#from modPDFAnalysis import comprehensive_pdf_analysis
 from modResponse import search_in_pinecone, refine_answer_with_llm
 
-# Set API Keys inside the script
-OPENAI_API_KEY = "sk-5JcbXuYcGKobVHUVQ4yFGFmwmoHyZ2EBmvaCwTcXVNT3BlbkFJef1rtXtB-1kv6V5wIBJkhF_pAnfjQ_tjgNQXCswEsA"
-PINECONE_API_KEY = "fa89aa36-c208-4901-9ae1-2db0d4601f0b"
-HUGGINGFACE_API_KEY = "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"
-
-# Initialize OpenAI and Pinecone
-openai.api_key = OPENAI_API_KEY
+openai.api_key = os.getenv("OPENAI_API_KEY")
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 pc = Pinecone(api_key=PINECONE_API_KEY)
 
 # Streamlit app logic
