@@ -1,0 +1,6 @@
+openai==0.28
+langchain
+langchain_community
+pinecone-client
+tiktoken
+ollama
