@@ -49,7 +49,8 @@ def main():
                                 #st.write(f"top results: {top_text_result}")
                                 
                         if top_text_result:
-                            refined_text = refine_answer_with_llm(top_text_result, search_query, temperature,max_tokens,'llama3.2:latest', 'Local')
+                            #refined_text = refine_answer_with_llm(top_text_result, search_query, temperature,max_tokens,'llama3.2:latest', 'Local')
+                            refined_text = refine_answer_with_llm(top_text_result, search_query, temperature,max_tokens,'gpt-3.5-turbo', 'Hosted')
                             #refined_text = refine_answer_with_llm(top_text_result, search_query, temperature,max_tokens,'meta-llama/Llama-3.2-1B', 'HuggingFace')
                             st.write(f"**Refined Answer: Generated using Llama-3.2-3B-Instruct**")
                             st.write(refined_text)
