@@ -17,6 +17,7 @@ pc = Pinecone(api_key=PINECONE_API_KEY)
 # Streamlit app logic
 def main():
     st.title("Knowledge Search")
+    st.write('This utility uses free accounts of HuggingFace and PineCone and so is subjective to limits. Pls. reissue the query after few minutes in case you notice errors or issues..')
     with st.sidebar:
         fn = st.radio("Choose the operation", [ "Search existing Index"], horizontal=True)
     if fn == "Search existing Index":
@@ -48,6 +49,7 @@ def main():
                             #refined_text = refine_answer_with_llm(top_text_result, search_query, temperature,max_tokens,'meta-llama/Llama-3.2-1B', 'HuggingFace')
                             st.write(f"**Refined Answer: Generated using Llama-3.2-3B-Instruct**")
                             st.write(refined_text)
+                            st.write('\n\n Disclaimer: Above generated text is AI generated and is prone to errors and this utility is in beta phase. Use with caution')                            
                         else:
                             st.write(f"No text found")
 
