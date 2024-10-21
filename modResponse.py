@@ -2,21 +2,23 @@ import streamlit as st
 import openai
 from langchain_community.llms import Ollama
 from pinecone import Pinecone, ServerlessSpec
+from dotenv import load_dotenv
+import os
 #import torch
 #from transformers import pipeline
 #from huggingface_hub import login
 #from llama_index.llms.groq import Groq
-
+load_dotenv()
 from modProcess import clean_text, compute_image_hash, extract_text_from_image, get_embedding
 
-OPENAI_API_KEY = "sk-5JcbXuYcGKobVHUVQ4yFGFmwmoHyZ2EBmvaCwTcXVNT3BlbkFJef1rtXtB-1kv6V5wIBJkhF_pAnfjQ_tjgNQXCswEsA"
-PINECONE_API_KEY = "fa89aa36-c208-4901-9ae1-2db0d4601f0b"
-#HUGGINGFACE_API_KEY = "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"
-
 # Initialize OpenAI and Pinecone
-openai.api_key = OPENAI_API_KEY
-pc = Pinecone(api_key=PINECONE_API_KEY)
 
+#print(os.getenv('OPENAI_API_KEY'))
+#print(os.getenv("PINECONE_API_KEY"))
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+pc = Pinecone(api_key=PINECONE_API_KEY)
 
 # Search function for querying Pinecone and handling the response
 def search_in_pinecone(query, index_name, top_k,embedType):
