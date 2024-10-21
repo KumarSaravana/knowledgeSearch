@@ -5,8 +5,12 @@ import pytesseract  # For OCR
 from PIL import Image
 import openai
 import ollama as ol
+from dotenv import load_dotenv
+import os
 
-OPENAI_API_KEY = "sk-5JcbXuYcGKobVHUVQ4yFGFmwmoHyZ2EBmvaCwTcXVNT3BlbkFJef1rtXtB-1kv6V5wIBJkhF_pAnfjQ_tjgNQXCswEsA"
+load_dotenv()
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def clean_text(text):
     cleaned_text = re.sub(r'\s+', ' ', text)  # Remove extra spaces, tabs, newlines
