@@ -6,6 +6,8 @@ from PIL import Image
 import openai
 import ollama as ol
 
+OPENAI_API_KEY = "sk-5JcbXuYcGKobVHUVQ4yFGFmwmoHyZ2EBmvaCwTcXVNT3BlbkFJef1rtXtB-1kv6V5wIBJkhF_pAnfjQ_tjgNQXCswEsA"
+
 def clean_text(text):
     cleaned_text = re.sub(r'\s+', ' ', text)  # Remove extra spaces, tabs, newlines
     cleaned_text = re.sub(r'[^\w\s.,!?]', '', cleaned_text)  # Remove special characters
