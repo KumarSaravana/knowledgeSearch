@@ -47,7 +47,7 @@ def main():
                             #refined_text = refine_answer_with_llm(top_text_result, search_query, temperature,max_tokens,'llama3.2:latest', 'Local')
                             refined_text = refine_answer_with_llm(top_text_result, search_query, temperature,max_tokens,'gpt-3.5-turbo', 'Hosted')
                             #refined_text = refine_answer_with_llm(top_text_result, search_query, temperature,max_tokens,'meta-llama/Llama-3.2-1B', 'HuggingFace')
-                            st.write(f"**Refined Answer: Generated using Llama-3.2-3B-Instruct**")
+                            st.write(f"**Refined Answer: Generated using gpt-3.5-turbo**")
                             st.write(refined_text)
                             st.write('\n\n Disclaimer: Above generated text is AI generated and is prone to errors and this utility is in beta phase. Use with caution')                            
                         else:
