@@ -16,7 +16,7 @@ pc = Pinecone(api_key=PINECONE_API_KEY)
 
 # Streamlit app logic
 def main():
-    st.title("Knowledge Search")
+    st.title("Otter")
     st.write('This utility uses free accounts of HuggingFace and PineCone and so is subjective to limits. Pls. reissue the query after few minutes in case you notice errors or issues..')
     with st.sidebar:
         fn = st.radio("Choose the operation", [ "Search existing Index"], horizontal=True)
